@@ -10,7 +10,26 @@ Table of Contents
 .. toctree::
    :numbered:
 
+   sections/architecture.rst
    sections/quickstart.rst
+   sections/getting-started.rst
+   sections/configuration.rst
+   sections/deployment.rst
+   sections/bootstrapping.rst
+   sections/commands-and-bundles.rst
+   sections/commands-as-containers.rst
+   sections/command-environment-variables.rst
+   sections/command-bundles.rst
+   sections/bundle-configurations.rst
+   sections/permissions-and-rules.rst
+   sections/writing-a-command-bundle.rst
+   sections/installing-your-first-command-bundle.rst
+   sections/managing-bundles.rst
+   sections/command-execution-rules.rst
+   sections/templates.rst
+   sections/templates-response-envelope.rst
+   sections/templates-functions.rst
+   sections/going-forward.rst
 
 * :ref:`genindex`
 * :ref:`search`
