@@ -39,25 +39,26 @@ the following:
 
 ::
 
-    {% raw %}{{ text | monospace true }}{{ .Response.Out }}{{ endtext }}{% endraw %}
+    {{ text | monospace true }}{{ .Response.Out }}{{ endtext }}
 
 This template emits the command's response (``.Response.Out``) as
 monospaced text, which may look something like the following:
 
-.. image:: ../images/command-mono.png
+.. figure:: ../images/command-mono.png
    :alt: Monospaced command output
 
    Monospaced command output
+
 A slightly more complicated template, this one a *command error
 template* (actually the default), is shown below.
 
 ::
 
-    {% raw %}{{ header | color "#FF0000" | title .Response.Title }}
+    {{ header | color "#FF0000" | title .Response.Title }}
     {{ text }}The pipeline failed planning the invocation:{{ endtext }}
     {{ text | monospace true }}{{ .Request.Bundle.Name }}:{{ .Request.Command.Name }} {{ .Request.Parameters }}{{ endtext }}
     {{ text }}The specific error was:{{ endtext }}
-    {{ text | monospace true }}{{ .Response.Out }}{{ endtext }}{% endraw %}
+    {{ text | monospace true }}{{ .Response.Out }}{{ endtext }}
 
 This one includes a header with a color and title, as well as some
 alternating monospaced and standard text. In this case, this will format
@@ -66,7 +67,6 @@ a command error something like the following:
 .. image:: ../images/command-formatted.png
    :alt: Pretty command error message
 
-   Pretty command error message
 Sure that's nice and all, but what's all this ``.Response`` stuff?
 That's part of what's called the "response envelope", a data structure
 that's accessible from any template, which makes available all of the

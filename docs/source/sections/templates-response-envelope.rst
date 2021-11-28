@@ -165,7 +165,7 @@ For example, if the contents of the command response are as follows:
     }
 
 So a template containing the instructions
-``{% raw %}{{.Payload.User}}, {{.Payload.Company}}{% endraw %}`` would
+``{{.Payload.User}}, {{.Payload.Company}}`` would
 resolve as ``Michael Scott, Dunder Mifflin``.
 
 If the response isn't structured, ``.Response.Structured`` will be

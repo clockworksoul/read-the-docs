@@ -10,14 +10,14 @@ their features, including variables, logic, and flow control.
 There are three main types of elements used to construct elements:
 
 -  **Tags:** Tags (or "actions") represents visual elements or
-   directives, such as ``{% raw %}{{ text }}{% endraw %}`` or
-   ``{% raw %}{{ image }}{% endraw %}``. All text and directives must be
+   directives, such as ``{{ text }}`` or
+   ``{{ image }}``. All text and directives must be
    enclosed within (or between) tags.
 
 -  **Functions:** Functions are used to modify the contents or behavior
    of tags. They're called using pipes (``|``) within a tag. For
    example,
-   ``{% raw %}{{ image "foo.jpg" | thumbnail true }}{% endraw %}`` turns
+   ``{{ image "foo.jpg" | thumbnail true }}`` turns
    an image into a thumbnail image. Some functions can only be used with
    specific tags. `Sprig <https://masterminds.github.io/sprig/>`__
    functions are also supported.
@@ -30,56 +30,56 @@ The supported elements are detailed below.
 Tags (Actions)
 --------------
 
-``{% raw %}{{alt}}{% endraw %}``
+``{{alt}}``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Provides alternative text to be shown if other elements in a message
 cannot be rendered. Only the first instance of
-``{% raw %}{{alt}}{% endraw %}`` will be shown.
+``{{alt}}`` will be shown.
 
-Example: ``{% raw %}{{ alt "This is alternative text." }}{% endraw %}``
+Example: ``{{ alt "This is alternative text." }}``
 
-``{% raw %}{{divider}}{% endraw %}``
+``{{divider}}``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Emits a simple divider, used to break up blocks.
 
-``{% raw %}{{ header }}{% endraw %}``
+``{{ header }}``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Can be used to decorate or modify the behavior of the entire template.
-If a ``{% raw %}{{ header }}{% endraw %}`` is used, it must be the first
+If a ``{{ header }}`` is used, it must be the first
 line of the template.
 
 +-------------+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
 | Function    | Description                                                                                             | Example                                                   |
 +=============+=========================================================================================================+===========================================================+
-| ``color``   | Adds a colored sidebar to the output block. Must be a hexadecimal string with the format ``#RRGGBB``.   | ``{% raw %}{{ header | color "#FF0000" }}{% endraw %}``   |
+| ``color``   | Adds a colored sidebar to the output block. Must be a hexadecimal string with the format ``#RRGGBB``.   | ``{{ header | color "#FF0000" }}``   |
 +-------------+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| ``title``   | Adds a title to the output block.                                                                       | ``{% raw %}{{ header | title "Error?" }}{% endraw %}``    |
+| ``title``   | Adds a title to the output block.                                                                       | ``{{ header | title "Error?" }}``    |
 +-------------+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
 
-``{% raw %}{{text}}{% endraw %}`` and ``{% raw %}{{endtext}}{% endraw %}``
+``{{text}}`` and ``{{endtext}}``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Used to describe a text block or element. They may be used inside of a
-``{% raw %}{{section}}{% endraw %}``/``{% raw %}{{endsection}}{% endraw %}``
+``{{section}}``/``{{endsection}}``
 pair.
 
 Example:
-``{% raw %}{{ text }}This is a plain text block.{{ endtext }}{% endraw %}``
+``{{ text }}This is a plain text block.{{ endtext }}``
 
 +-----------------+------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
 | Function        | Description                                                                              | Example                                                                                       |
 +=================+==========================================================================================+===============================================================================================+
-| ``inline``      | Makes the text "inline" (in the Discord sense). If true, a ``title`` is also expected.   | ``{% raw %}{{ text | inline true | title "Favorite Food" }}Pizza{{ endtext }}{% endraw %}``   |
+| ``inline``      | Makes the text "inline" (in the Discord sense). If true, a ``title`` is also expected.   | ``{{ text | inline true | title "Favorite Food" }}Pizza{{ endtext }}``   |
 +-----------------+------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
-| ``monospace``   | All text in the block is monospaced.                                                     | ``{% raw %}{{ text | monospace true }}THIS IS CODE.{{ endtext }}{% endraw %}``                |
+| ``monospace``   | All text in the block is monospaced.                                                     | ``{{ text | monospace true }}THIS IS CODE.{{ endtext }}``                |
 +-----------------+------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
-| ``title``       | Adds a title to the text block.                                                          | ``{% raw %}{{ text | title "Favorite Food" }}Pizza{{ endtext }}{% endraw %}``                 |
+| ``title``       | Adds a title to the text block.                                                          | ``{{ text | title "Favorite Food" }}Pizza{{ endtext }}``                 |
 +-----------------+------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+
 
-``{% raw %}{{section}}{% endraw %}`` and ``{% raw %}{{endsection}}{% endraw %}``
+``{{section}}`` and ``{{endsection}}``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Sections can be used to group elements together. These are only
@@ -90,29 +90,29 @@ collection:
 
 ::
 
-    {% raw %}{{ text }}Here are your results:{{ endtext }}
+    {{ text }}Here are your results:{{ endtext }}
     {{ range $index, $loc := .Payload.Locations }}
     {{ section }}
     {{ text | title $loc.Title | inline true }}$loc.Name{{ endtext }}
     {{ image $loc.Image | thumbnail true }}
     {{ endsection }}
-    {{ end }}{% endraw %}
+    {{ end }}
 
-``{% raw %}{{image}}{% endraw %}``
+``{{image}}``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Outputs an image whose URL is specified in the argument. They may be
 used inside of a
-``{% raw %}{{section}}{% endraw %}``/``{% raw %}{{endsection}}{% endraw %}``
+``{{section}}``/``{{endsection}}``
 pair.
 
 Example:
-``{% raw %}{{ image "https://example.com/img/image1.png" }}{% endraw %}``
+``{{ image "https://example.com/img/image1.png" }}``
 
 +-----------------+-------------------------------------------------------------------------------------+------------------------------------------------------------------------+
 | Function        | Description                                                                         | Example                                                                |
 +=================+=====================================================================================+========================================================================+
-| ``thumbnail``   | Causes the image to be presented as a thumbnail (usually for a block or section).   | ``{% raw %}{{ image .Payload.Image | thumbnail true }}{% endraw %}``   |
+| ``thumbnail``   | Causes the image to be presented as a thumbnail (usually for a block or section).   | ``{{ image .Payload.Image | thumbnail true }}``   |
 +-----------------+-------------------------------------------------------------------------------------+------------------------------------------------------------------------+
 
 Additional Functions
