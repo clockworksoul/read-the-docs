@@ -9,6 +9,7 @@ Table of Contents
 -----------------
 .. toctree::
    :numbered:
+   :maxdepth: 2
 
    sections/architecture.rst
    sections/quickstart.rst
@@ -33,3 +34,4 @@ Table of Contents
 
 * :ref:`genindex`
 * :ref:`search`
+
