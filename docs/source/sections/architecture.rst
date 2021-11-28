@@ -20,7 +20,7 @@ Gort has several parts:
 A high-level view of the relationships between these components is
 illustrated below.
 
-.. figure:: images/gort-architecture.png
+.. image:: ../images/gort-architecture.png
    :alt: Gort architecture
 
    Gort high-level architecture

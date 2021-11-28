@@ -44,7 +44,7 @@ the following:
 This template emits the command's response (``.Response.Out``) as
 monospaced text, which may look something like the following:
 
-.. figure:: images/command-mono.png
+.. image:: ../images/command-mono.png
    :alt: Monospaced command output
 
    Monospaced command output
@@ -63,7 +63,7 @@ This one includes a header with a color and title, as well as some
 alternating monospaced and standard text. In this case, this will format
 a command error something like the following:
 
-.. figure:: images/command-formatted.png
+.. image:: ../images/command-formatted.png
    :alt: Pretty command error message
 
    Pretty command error message
