@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'The Gort Guide'
+copyright = '2021, The Gort Authors'
+author = 'Gort Authors'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.9'
+version = '0.9.0'
 
 # -- General configuration
 
